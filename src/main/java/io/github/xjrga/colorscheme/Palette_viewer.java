@@ -17,8 +17,8 @@
  */
 package io.github.xjrga.colorscheme;
 
-import io.github.xjrga.looks.utilities.Message;
-import io.github.xjrga.looks.utilities.NumberCheck;
+import io.github.xjrga.colorscheme.utilities.Message;
+import io.github.xjrga.colorscheme.utilities.NumberCheck;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -103,7 +103,7 @@ public class Palette_viewer {
      */
     public Palette_viewer() {
         fileChooser = new JFileChooser();
-        frame = new JFrame("Palette Viewer");
+        frame = new JFrame("Color Scheme");
         Image image = new ImageIcon(getClass().getResource("/logo.png")).getImage();
         frame.setIconImage(image);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

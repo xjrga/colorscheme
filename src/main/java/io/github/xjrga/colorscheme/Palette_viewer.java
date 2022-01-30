@@ -276,7 +276,7 @@ public class Palette_viewer {
             new Thread() {
                 @Override
                 public void run() {
-                    has_completed = false;
+                    has_completed(false);
                     ((TitledBorder) panelColors.getBorder()).setTitleColor(fontColor);
                     ((TitledBorder) panelOriginal.getBorder()).setTitleColor(fontColor);
                     ((TitledBorder) panelColorsLeft.getBorder()).setTitleColor(fontColor);
@@ -314,7 +314,7 @@ public class Palette_viewer {
                             component.setForeground(fontColor);
                         }
                     }
-                    has_completed = true;
+                    has_completed(true);
                 }
             }.start();
         } else if (optionBackground.isSelected()) {
@@ -322,7 +322,7 @@ public class Palette_viewer {
             new Thread() {
                 @Override
                 public void run() {
-                    has_completed = false;
+                    has_completed(false);
                     LineBorder paneLineBorder = new LineBorder(backgroundColor);
                     panelColors.setBackground(backgroundColor);
                     panelOriginal.setBackground(backgroundColor);
@@ -335,7 +335,7 @@ public class Palette_viewer {
                     ((TitledBorder) panelColorsBottom.getBorder()).setBorder(paneLineBorder);
                     ((TitledBorder) panelColorsLeft.getBorder()).setBorder(paneLineBorder);
                     ((TitledBorder) panelColorsRight.getBorder()).setBorder(paneLineBorder);
-                    has_completed = true;
+                    has_completed(true);
                 }
             }.start();
         } else if (optionHarmonic.isSelected()) {
@@ -347,7 +347,7 @@ public class Palette_viewer {
             new Thread() {
                 @Override
                 public void run() {
-                    has_completed = false;
+                    has_completed(false);
                     panelOriginal.removeAll();
                     panelOriginal.add(getLabel(colorHarmonic.get_hue_change_0()));
                     panelColorsLeft.removeAll();
@@ -372,7 +372,7 @@ public class Palette_viewer {
                     }
                     panelColors.revalidate();
                     panelColors.repaint();
-                    has_completed = true;
+                    has_completed(true);
                 }
 
                 private JLabel getLabel(Harmonic_color harmonicColor) {
@@ -416,7 +416,7 @@ public class Palette_viewer {
             new Thread() {
                 @Override
                 public void run() {
-                    has_completed = false;
+                    has_completed(false);
                     LineBorder labelLineBorder = new LineBorder(borderColor, 2);
                     Component[] componentsOriginal = panelOriginal.getComponents();
                     for (Component component : componentsOriginal) {
@@ -448,10 +448,14 @@ public class Palette_viewer {
                             ((JComponent) component).setBorder(labelLineBorder);
                         }
                     }
-                    has_completed = true;
+                    has_completed(true);
                 }
             }.start();
         }
+    }
+
+    private synchronized void has_completed(boolean b) {
+        has_completed = b;
     }
 
     /**
@@ -552,7 +556,7 @@ public class Palette_viewer {
                 new JLabel("Please set delay"),
                 delay_text_field
             };
-            int option = Message.INSTANCE.showOptionDialogOkCancel(inputs, "Eye dropper");
+            int option = Message.INSTANCE.showOptionDialogOkCancel(inputs, "Eyedropper");
             check.addToUncheckedList(delay_text_field.getText());
             if (check.pass()) {
                 if (option == 0) {
@@ -563,7 +567,7 @@ public class Palette_viewer {
                     BigDecimal y = new BigDecimal(p.getY());
                     Color color = robot.getPixelColor(x.intValue(), y.intValue());
                     paletteChooserPanel.addColorItem(color);
-                    Message.INSTANCE.showMessage("Color saved to palette.", "Eye dropper");
+                    Message.INSTANCE.showMessage("Color saved to palette.", "Eyedropper");
                 }
             }
         } catch (AWTException e) {

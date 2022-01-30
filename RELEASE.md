@@ -5,3 +5,7 @@ RELEASE NOTES
 01
 
     Initial release
+
+02
+
+    Fix bug

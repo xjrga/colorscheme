@@ -16,14 +16,14 @@ Color Scheme is a color pick tool and eyedropper.
 
 Installing
 
-    1. Download colorscheme-01-app.zip from https://xjrga.github.io/releases
-    2. unzip colorscheme-01-app.zip
-    3. cd colorscheme-01-app
-    4. java -jar colorscheme-01.jar (if you are on windows double click on jar file)
+    1. Download colorscheme-02-app.zip from https://xjrga.github.io/releases
+    2. unzip colorscheme-02-app.zip
+    3. cd colorscheme-02-app
+    4. java -jar colorscheme-02.jar (if you are on windows double click on jar file)
 
 Version
  
-    01
+    02
 
 Authors
 
